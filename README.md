@@ -10,7 +10,7 @@ Linux amd64 编译运行包，包含参数 API、三维调参、ROS 2 关节预�
 | 三维运动学调参 | 已提供 |
 | ROS 2 参数加载和关节轨迹预览 | 已验证 |
 | 原版 MEVIUS2 四足闭环仿真及 ROS 接口 | 已验证 |
-| Jetson ARM64 安装包 | 待完成 |
+| Jetson ARM64 安装包 | 软件候选包已发布；Jetson 实测待完成 |
 | DM-MC02 固件、RS04 角度适配、客户实机验收 | 待完成 |
 
 三维调参轨迹预览与四足策略进程为独立功能。本包不包含旧版统一导航 Docker 镜像。
@@ -20,3 +20,9 @@ Linux amd64 编译运行包，包含参数 API、三维调参、ROS 2 关节预�
 [完整安装包（约 820 MB）](https://omindos.cn/downloads/navigation/v0.2.0-preview.5/omindos-control-preview-0.2.0-preview.5-linux-amd64.tar) · [SHA256](assets/v0.2.0-preview.5/SHA256SUMS-release.txt)
 
 GitHub 自动生成的 Source code 压缩包只包含发行资料。第三方软件保留各自许可，见 [THIRD_PARTY.md](THIRD_PARTY.md) 与安装包内许可证。
+
+## 四足 ARM64 软件预览
+
+[ARM64 Release](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-arm64-preview.1) · [ARM64 安装与范围](docs/ARM64_PREVIEW_1.zh-CN.md)
+
+原生 ARM64 软件验证通过；Jetson 实机安装、DM-MC02 完整通信固件与 RS04 实机联调仍待完成。此预览不启用电机输出。

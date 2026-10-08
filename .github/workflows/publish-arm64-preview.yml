@@ -1,0 +1,46 @@
+name: Publish ARM64 quadruped preview
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-arm64-preview.yml'
+      - 'scripts/download_arm64_preview.py'
+      - 'assets/v0.2.0-arm64-preview.1/**'
+      - 'docs/ARM64_PREVIEW_1.zh-CN.md'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-arm64-preview
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      TAG: v0.2.0-arm64-preview.1
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch and verify complete ARM64 package
+        run: python3 scripts/download_arm64_preview.py
+      - name: Upload draft and verify assets before publication
+        run: |
+          set -euo pipefail
+          gh release create "$TAG" --target "$GITHUB_SHA" --draft --prerelease --title "OmindOS 四足 ARM64 软件预览 0.2.0-arm64-preview.1" --notes-file "assets/$TAG/RELEASE_NOTES.zh-CN.md"
+          gh release upload "$TAG" "assets/$TAG/omindos-control-arm64-candidate.tar" "assets/$TAG/SHA256SUMS-release.txt" "assets/$TAG/VALIDATION.json" "assets/$TAG/RELEASE_SUMMARY.json"
+          gh api "repos/$GH_REPO/releases/tags/$TAG" > /tmp/release.json
+          python3 - <<'PY'
+          import json
+          r = json.load(open('/tmp/release.json'))
+          assert r['draft'] and r['prerelease']
+          a = {x['name']: x for x in r['assets']}
+          assert a['omindos-control-arm64-candidate.tar']['size'] == 521502720
+          assert a['omindos-control-arm64-candidate.tar']['digest'] == 'sha256:32066d2b5baf3830a75d0ac099a76b892ddc21f585881e1cfbcc9bec253d1a46'
+          assert set(a) == {'omindos-control-arm64-candidate.tar', 'SHA256SUMS-release.txt', 'VALIDATION.json', 'RELEASE_SUMMARY.json'}
+          PY
+          gh release edit "$TAG" --draft=false --prerelease --latest=false

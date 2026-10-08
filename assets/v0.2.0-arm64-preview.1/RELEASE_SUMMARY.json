@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0-arm64-preview.1",
+  "filename": "omindos-control-arm64-candidate.tar",
+  "platform": "linux/arm64",
+  "bytes": 521502720,
+  "sha256": "32066d2b5baf3830a75d0ac099a76b892ddc21f585881e1cfbcc9bec253d1a46",
+  "source_commit": "c5e4ba62bc730e140526c36dfc16ff45c1f22f17",
+  "jetson_hardware_tested": false,
+  "hardware_adapter_ready": false,
+  "motor_output_enabled": false,
+  "flashable_dm_mc02_firmware_available": false,
+  "validation": {
+    "platform": "linux/arm64",
+    "native_module_imports": true,
+    "ros2_import": true,
+    "torch_cpu": true,
+    "mujoco_step": true,
+    "backend_source_included": false,
+    "customer_records_included": false,
+    "jetson_hardware_tested": false,
+    "motor_output_enabled": false
+  }
+}

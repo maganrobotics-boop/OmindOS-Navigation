@@ -1,0 +1,11 @@
+{
+  "platform": "linux/arm64",
+  "native_module_imports": true,
+  "ros2_import": true,
+  "torch_cpu": true,
+  "mujoco_step": true,
+  "backend_source_included": false,
+  "customer_records_included": false,
+  "jetson_hardware_tested": false,
+  "motor_output_enabled": false
+}
