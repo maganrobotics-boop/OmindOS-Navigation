@@ -12,5 +12,7 @@
     "RELEASE_NOTES.md": "b22fbf38b6059846f016b7f33c3365a99f033025ee6fb9c969eb7354ecf71ecd",
     "docs/INSTALL.zh-CN.md": "d331682be23e9f9d7e2e6b163c08d8570f9777b6a24474394628dcdff94ecb64",
     "docs/PUBLICATION_STATUS.md": "8f21886c0e551d7997ec7b722a76be8ed6ec97858b45955a1ecf568c8e9747de"
-  }
+  },
+  "destination_tag_sha": "bce9ceca2bee42780c12bec06b21f0f52770d7be",
+  "destination_tag_strategy": "documentation_archive_snapshot_no_legacy_workflows"
 }

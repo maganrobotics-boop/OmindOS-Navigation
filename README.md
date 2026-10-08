@@ -31,11 +31,11 @@ GitHub 自动生成的 Source code 压缩包只包含发行资料。第三方软
 
 ## 历史发行版
 
-以下版本从 Omind-Robotics 原发行仓保留，原标签、附件与 SHA256 不变；说明按原发行时的功能范围保存。
+以下版本从 Omind-Robotics 原发行仓保留，原版本号、附件与 SHA256 保留；说明按原发行时的功能范围保存。
 
 | 版本 | 内容与适用范围 | 使用说明 |
 | --- | --- | --- |
 | [v0.2.0-preview.2](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-preview.2) | 统一导航预览＋参数注册 API、URDF／电机配置与版本保存；约 265 MB 离线包 | [完整说明](history/v0.2.0-preview.2/README.md) |
 | [v0.2.0-preview.1](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-preview.1) | 轮式／四足统一导航接口与平面运动学预览；约 265 MB 离线包 | [完整说明](history/v0.2.0-preview.1/README.md) |
 
-历史 preview.1／preview.2 的完整安装包沿用原下载服务器链接；原 GitHub 附件同步保留。两版不含四足步态和平衡控制，详细范围见各自发行说明。
+历史 preview.1／preview.2 的完整安装包沿用原下载服务器链接；原 GitHub 附件同步保留。两版不含四足步态和平衡控制，详细范围见各自发行说明。同名标签指向本仓库的归档文档快照，原始标签提交记录在各版 `ORIGIN.json` 和发行页中。

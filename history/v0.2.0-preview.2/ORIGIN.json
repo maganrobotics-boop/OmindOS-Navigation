@@ -48,5 +48,7 @@
         "to": "https://github.com/Omind-Robotics/OmindOS-Navigation-Release/blob/154f9d36d6ebda163ca1b39913d282709cbb78da/docs/validation/mevius2-reference-20261008.json"
       }
     ]
-  }
+  },
+  "destination_tag_sha": "bce9ceca2bee42780c12bec06b21f0f52770d7be",
+  "destination_tag_strategy": "documentation_archive_snapshot_no_legacy_workflows"
 }

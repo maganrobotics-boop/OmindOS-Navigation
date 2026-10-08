@@ -72,15 +72,15 @@ def prepare_release(item, source, output):
 
 def mirror(item, source, destination, target):
     tag = item['tag']
-    temporary_ref = 'refs/history-import/' + tag
-    subprocess.run(['git', 'fetch', '--no-tags', 'https://github.com/' + source + '.git',
-                    'refs/tags/' + tag + ':' + temporary_ref], check=True)
-    assert run('git', 'rev-parse', temporary_ref) == item['tag_sha'], 'Source tag changed'
+    source_ref = api('repos/' + source + '/git/ref/tags/' + tag)
+    assert source_ref['object']['sha'] == item['tag_sha'], 'Source tag changed'
+    # Archive documentation on an existing destination commit; do not import old workflows.
+    archive_sha = item['destination_tag_sha']
     existing_tag = run('git', 'ls-remote', '--refs', 'origin', 'refs/tags/' + tag)
     if existing_tag:
-        assert existing_tag.split()[0] == item['tag_sha'], 'Destination tag conflicts'
+        assert existing_tag.split()[0] == archive_sha, 'Destination tag conflicts'
     else:
-        subprocess.run(['git', 'push', 'origin', temporary_ref + ':refs/tags/' + tag], check=True)
+        api('repos/' + destination + '/git/refs', {'ref': 'refs/tags/' + tag, 'sha': archive_sha})
     try:
         release = api('repos/' + destination + '/releases/tags/' + tag)
     except urllib.error.HTTPError as exc:
