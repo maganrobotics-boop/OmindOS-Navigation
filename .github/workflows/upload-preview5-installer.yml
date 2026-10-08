@@ -1,0 +1,51 @@
+name: Attach verified preview 5 installer
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/upload-preview5-installer.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: attach-preview5-installer
+  cancel-in-progress: false
+jobs:
+  upload:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Download public installer using origin endpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd assets/v0.2.0-preview.5
+          file=omindos-control-preview-0.2.0-preview.5-linux-amd64.tar
+          # Only a public artifact is fetched here. Its trusted, pinned SHA-256
+          # authenticates all bytes before any attachment is published.
+          # Direct origin avoids domain-SNI connection resets from hosted runners.
+          curl --insecure --fail --http1.1 --retry 2 --retry-all-errors --connect-timeout 15 --max-time 600 --header 'Host: omindos.cn' --output "$file.part" "https://43.138.161.143/downloads/navigation/v0.2.0-preview.5/$file"
+          mv "$file.part" "$file"
+          sha256sum -c SHA256SUMS-release.txt
+          test "$(stat -c %s "$file")" = 820449280
+      - name: Upload full installer without replacing existing assets
+        run: |
+          set -euo pipefail
+          gh release upload v0.2.0-preview.5 assets/v0.2.0-preview.5/omindos-control-preview-0.2.0-preview.5-linux-amd64.tar
+          gh release edit v0.2.0-preview.5 --notes-file assets/v0.2.0-preview.5/RELEASE_NOTES.md
+      - name: Verify GitHub attachment digest
+        run: |
+          gh api repos/$GH_REPO/releases/tags/v0.2.0-preview.5 > /tmp/release.json
+          python3 - <<'PY'
+          import json
+          r=json.load(open('/tmp/release.json'))
+          a=next(x for x in r['assets'] if x['name']=='omindos-control-preview-0.2.0-preview.5-linux-amd64.tar')
+          assert a['size']==820449280
+          assert a['digest']=='sha256:276b666a8fee186ba839c30bda8676baba4125a7c9e51408f07ed596cc9db5cc'
+          print('Verified full GitHub release attachment')
+          PY
