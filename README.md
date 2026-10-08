@@ -1,4 +1,20 @@
-# OmindOS 控制预览 0.2.0-preview.5
+# OmindOS Navigation
+
+[最新预览 v0.2.0-preview.6](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-preview.6) · [安装与兼容性](docs/CONTROL_PREVIEW_6.zh-CN.md)
+
+四足软件提供独立轻量工作台和完整 ROS 2／仿真运行包。后端业务程序以编译形式交付，业务源码不随包提供。
+
+| 下载 | 大小 | 适用场景 |
+| --- | ---: | --- |
+| [Linux x64 轻量工作台](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.6/omindos-quadruped-workbench-0.2.0-size-candidate.1-linux-x64.tar.gz) | 21.99 MB | 独立三维调参、URDF 与运动学预览 |
+| [Windows x64 轻量工作台](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.6/omindos-quadruped-workbench-0.2.0-size-candidate.1-windows-x64.zip) | 8.23 MB | 同上；未签名 |
+| [Linux amd64 完整包](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.6/omindos-control-preview-0.2.0-preview.5-size-candidate.1-linux-amd64.tar) | 540.42 MB | ROS 2 Humble、策略推理与 MEVIUS2 闭环仿真；需 Docker |
+
+完整包相较 preview.5 的 820.45 MB 减少 **34.13%**，保留既有业务与仿真功能。轻量包无需另装 Python、ROS 或 Docker，默认是 12 关节合成教学模型，可导入实际 URDF；动力学仿真使用完整包。Jetson、Windows ROS/WSL 和真实电机未在此版本验收。
+
+本次原样发布已验收候选，安装包名仍含 `size-candidate.1`，完整包内业务版本仍为 preview.5。包内旧 README 为构建时快照，当前状态与联调结果见 [preview.6 说明](docs/CONTROL_PREVIEW_6.zh-CN.md) 和 [验证记录](assets/v0.2.0-preview.6/VALIDATION.json)。[SHA256 校验值](assets/v0.2.0-preview.6/SHA256SUMS-release.txt)
+
+## 保留版本：控制预览 0.2.0-preview.5
 
 [发行页](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-preview.5) · [安装与使用](docs/CONTROL_PREVIEW_5.zh-CN.md)
 

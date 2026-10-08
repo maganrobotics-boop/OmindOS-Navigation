@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "method": "Unauthenticated public GitHub release URL, first 64 KiB compared to verified source package; full asset SHA256 verified by GitHub API in publication workflow.",
+  "files": [
+    {
+      "filename": "omindos-control-preview-0.2.0-preview.5-size-candidate.1-linux-amd64.tar",
+      "status": "PASS",
+      "http_status": 206,
+      "content_range": "bytes 0-65535/540416000",
+      "sample_bytes": 65536,
+      "sample_sha256": "84a62a13896dc861a711cbde877ee7c8e27f13382863345b2bce173816139639",
+      "url": "https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.6/omindos-control-preview-0.2.0-preview.5-size-candidate.1-linux-amd64.tar"
+    },
+    {
+      "filename": "omindos-quadruped-workbench-0.2.0-size-candidate.1-linux-x64.tar.gz",
+      "status": "PASS",
+      "http_status": 206,
+      "content_range": "bytes 0-65535/21990166",
+      "sample_bytes": 65536,
+      "sample_sha256": "deefd28ce20999dda2bf6feca785eb4bed3aa7ecb008c78f13bed9aa044e6084",
+      "url": "https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.6/omindos-quadruped-workbench-0.2.0-size-candidate.1-linux-x64.tar.gz"
+    },
+    {
+      "filename": "omindos-quadruped-workbench-0.2.0-size-candidate.1-windows-x64.zip",
+      "status": "PASS",
+      "http_status": 206,
+      "content_range": "bytes 0-65535/8232521",
+      "sample_bytes": 65536,
+      "sample_sha256": "3341fd82f7213dc0f80cc24e1af5f6f9030297096d8713c07cbf0dbc2d4b9996",
+      "url": "https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.6/omindos-quadruped-workbench-0.2.0-size-candidate.1-windows-x64.zip"
+    }
+  ],
+  "publication": {
+    "release_id": 407308147,
+    "release_url": "https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-preview.6",
+    "published_at": "2026-10-08T22:39:58Z",
+    "draft": false,
+    "prerelease": true,
+    "workflow": "https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/actions/runs/37853076184",
+    "workflow_conclusion": "success",
+    "full_download_sha256_verified": true,
+    "assets": [
+      {
+        "name": "omindos-control-preview-0.2.0-preview.5-size-candidate.1-linux-amd64.tar",
+        "bytes": 540416000,
+        "digest": "sha256:af2cc32308c0ffc0a14b26cd71f454b8b9566096573ee09fb09f191ec7eedbd8",
+        "state": "uploaded"
+      },
+      {
+        "name": "omindos-quadruped-workbench-0.2.0-size-candidate.1-linux-x64.tar.gz",
+        "bytes": 21990166,
+        "digest": "sha256:134fc899a9c2f320527578d8eb80e88ffabb4d44e4e87942828edc0351b79bfe",
+        "state": "uploaded"
+      },
+      {
+        "name": "omindos-quadruped-workbench-0.2.0-size-candidate.1-windows-x64.zip",
+        "bytes": 8232521,
+        "digest": "sha256:1001f67e9e6c8a54a619ffcee9a42b160f6a70aacda61b606eb9df8ac356ffc6",
+        "state": "uploaded"
+      },
+      {
+        "name": "RELEASE_NOTES.zh-CN.md",
+        "bytes": 3114,
+        "digest": "sha256:cafefa82a6cf735e0d4c0a377ec845e258712f3ea8d22a1f5b4adaccb78166b0",
+        "state": "uploaded"
+      },
+      {
+        "name": "RELEASE_SUMMARY.json",
+        "bytes": 2523,
+        "digest": "sha256:868d6885dd14f6b48e2c5f8f7a43a8315efe1bfc2f9f2297e4a3d60be1cd8c03",
+        "state": "uploaded"
+      },
+      {
+        "name": "SHA256SUMS-release.txt",
+        "bytes": 406,
+        "digest": "sha256:cd34c36aafc700021f664c9876bc5de89a8dbb2aa858dc2f6c1dcaf5c92722b0",
+        "state": "uploaded"
+      },
+      {
+        "name": "VALIDATION.json",
+        "bytes": 6384,
+        "digest": "sha256:8755289f3c6d73da0450ad273ad9d87ffcd7b00db9378df4e6e72d5924b69160",
+        "state": "uploaded"
+      }
+    ]
+  }
+}
