@@ -26,21 +26,38 @@ jobs:
       TAG: v0.2.0-arm64-preview.1
     steps:
       - uses: actions/checkout@v4
+      - name: Find existing release for safe resume
+        id: existing
+        run: |
+          set -euo pipefail
+          gh api "repos/$GH_REPO/releases?per_page=100" > /tmp/releases.json
+          python3 - <<'PY'
+          import json, os
+          rows = [r for r in json.load(open('/tmp/releases.json')) if r['tag_name'] == os.environ['TAG']]
+          assert len(rows) <= 1
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write('present=' + ('true' if rows else 'false') + '\n')
+          PY
       - name: Fetch and verify complete ARM64 package
+        if: steps.existing.outputs.present != 'true'
         run: python3 scripts/download_arm64_preview.py
       - name: Upload draft and verify assets before publication
         run: |
           set -euo pipefail
+          if [ "${{ steps.existing.outputs.present }}" != true ]; then
           gh release create "$TAG" --target "$GITHUB_SHA" --draft --prerelease --title "OmindOS 四足 ARM64 软件预览 0.2.0-arm64-preview.1" --notes-file "assets/$TAG/RELEASE_NOTES.zh-CN.md"
           gh release upload "$TAG" "assets/$TAG/omindos-control-arm64-candidate.tar" "assets/$TAG/SHA256SUMS-release.txt" "assets/$TAG/VALIDATION.json" "assets/$TAG/RELEASE_SUMMARY.json"
-          gh api "repos/$GH_REPO/releases/tags/$TAG" > /tmp/release.json
+          fi
+          RELEASE_ID=$(gh api "repos/$GH_REPO/releases?per_page=100" --jq '.[] | select(.tag_name == "v0.2.0-arm64-preview.1") | .id')
+          test -n "$RELEASE_ID"
+          gh api "repos/$GH_REPO/releases/$RELEASE_ID" > /tmp/release.json
           python3 - <<'PY'
           import json
           r = json.load(open('/tmp/release.json'))
-          assert r['draft'] and r['prerelease']
+          assert r['tag_name'] == 'v0.2.0-arm64-preview.1' and r['prerelease']
           a = {x['name']: x for x in r['assets']}
           assert a['omindos-control-arm64-candidate.tar']['size'] == 521502720
           assert a['omindos-control-arm64-candidate.tar']['digest'] == 'sha256:32066d2b5baf3830a75d0ac099a76b892ddc21f585881e1cfbcc9bec253d1a46'
           assert set(a) == {'omindos-control-arm64-candidate.tar', 'SHA256SUMS-release.txt', 'VALIDATION.json', 'RELEASE_SUMMARY.json'}
           PY
-          gh release edit "$TAG" --draft=false --prerelease --latest=false
+          gh api --method PATCH "repos/$GH_REPO/releases/$RELEASE_ID" -F draft=false -F prerelease=true -f make_latest=false --jq '{html_url, draft, prerelease}'
