@@ -1,0 +1,71 @@
+name: Publish compiled control preview 5
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish-preview5.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-preview5
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      VERSION: v0.2.0-preview.5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify acceptance records
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('assets/v0.2.0-preview.5')
+          s=json.loads((p/'RELEASE_SUMMARY.json').read_text())
+          v=json.loads((p/'VALIDATION.json').read_text())
+          d=json.loads((p/'DOWNLOAD_CHECK.json').read_text())
+          i=json.loads((p/'INSTALLATION_CHECK.json').read_text())
+          assert s['version']=='0.2.0-preview.5'
+          assert s['sha256']==d['origin_full_sha256']=='276b666a8fee186ba839c30bda8676baba4125a7c9e51408f07ed596cc9db5cc'
+          assert s['bytes']==d['public_bytes']==820449280
+          assert all(x['status']=='PASS' for x in [v,d,i])
+          assert v['compiled_python_regression_tests']==110 and v['quadruped_ros_checks']==18 and v['dynamics_scenarios']==4
+          assert not s['backend_source_included'] and not s['private_customer_record_included']
+          assert not s['hardware_validated'] and not s['jetson_arm64_included']
+          PY
+      - name: Download and verify full installer
+        id: download
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd assets/v0.2.0-preview.5
+          file=omindos-control-preview-0.2.0-preview.5-linux-amd64.tar
+          curl --fail --location --retry 1 --retry-all-errors --retry-delay 3 --connect-timeout 15 --max-time 300 --output "$file.part" "https://omindos.cn/downloads/navigation/v0.2.0-preview.5/$file"
+          mv "$file.part" "$file"
+          sha256sum -c SHA256SUMS-release.txt
+          test "$(stat -c %s "$file")" = 820449280
+      - name: Publish release
+        shell: bash
+        env:
+          DOWNLOAD_RESULT: ${{ steps.download.outcome }}
+        run: |
+          set -euo pipefail
+          root=assets/v0.2.0-preview.5
+          attachments=("$root/VALIDATION.json" "$root/INSTALLATION_CHECK.json" "$root/DOWNLOAD_CHECK.json" "$root/RELEASE_SUMMARY.json" "$root/SHA256SUMS-release.txt")
+          if [ "$DOWNLOAD_RESULT" = success ]; then
+            attachments+=("$root/omindos-control-preview-0.2.0-preview.5-linux-amd64.tar")
+          else
+            printf '\n完整安装包暂未传入 GitHub 附件，请使用上方 OmindOS 完整下载地址；GitHub 附件提供校验与验证记录。\n' >> "$root/RELEASE_NOTES.md"
+          fi
+          if gh release view "$VERSION" >/dev/null 2>&1; then
+            echo 'Release exists; refusing to overwrite.'
+            exit 1
+          fi
+          gh release create "$VERSION" "${attachments[@]}" --target "$GITHUB_SHA" --prerelease --title 'OmindOS 0.2.0-preview.5 · 三维调参与四足仿真' --notes-file "$root/RELEASE_NOTES.md"
