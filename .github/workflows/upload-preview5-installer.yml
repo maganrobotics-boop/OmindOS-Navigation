@@ -8,7 +8,7 @@ permissions:
   contents: write
 concurrency:
   group: attach-preview5-installer
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   upload:
     runs-on: ubuntu-24.04
@@ -23,16 +23,7 @@ jobs:
       - name: Download public installer using origin endpoint
         shell: bash
         run: |
-          set -euo pipefail
-          cd assets/v0.2.0-preview.5
-          file=omindos-control-preview-0.2.0-preview.5-linux-amd64.tar
-          # Only a public artifact is fetched here. Its trusted, pinned SHA-256
-          # authenticates all bytes before any attachment is published.
-          # Direct origin avoids domain-SNI connection resets from hosted runners.
-          curl --insecure --fail --http1.1 --retry 2 --retry-all-errors --connect-timeout 15 --max-time 600 --header 'Host: omindos.cn' --output "$file.part" "https://43.138.161.143/downloads/navigation/v0.2.0-preview.5/$file"
-          mv "$file.part" "$file"
-          sha256sum -c SHA256SUMS-release.txt
-          test "$(stat -c %s "$file")" = 820449280
+          python3 scripts/download_preview5_installer.py
       - name: Upload full installer without replacing existing assets
         run: |
           set -euo pipefail
