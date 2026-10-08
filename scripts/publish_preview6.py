@@ -35,15 +35,11 @@ def main():
         assert expected[item['filename']] == (item['bytes'], 'sha256:'+item['sha256'])
     assert (ROOT/'SHA256SUMS-release.txt').read_text() == ''.join(
         item['sha256']+'  '+item['filename']+'\n' for item in summary['files'])
-    releases = [r for r in api('releases?per_page=100') if r['tag_name'] == TAG]
-    assert len(releases) <= 1
-    if not releases:
-        gh('release', 'create', TAG, '--target', os.environ['GITHUB_SHA'],
-           '--draft', '--prerelease', '--title', 'OmindOS Navigation 0.2.0-preview.6 · 轻量工作台与完整仿真包',
-           '--notes-file', str(ROOT/'RELEASE_NOTES.zh-CN.md'))
-        releases = [r for r in api('releases?per_page=100') if r['tag_name'] == TAG]
-    assert len(releases) == 1
-    release = releases[0]
+    # Use the exact draft returned by the first publication attempt. The
+    # collection endpoint can lag immediately after creating a release.
+    release = api('releases/407308147')
+    assert release['tag_name'] == TAG
+    assert release['target_commitish'] == 'd4969eb8ba38601ac2fdb01142462968a5952b61'
     assert release['prerelease']
     existing = {a['name']: a for a in release['assets']}
     assert set(existing) <= set(NAMES), 'Unexpected asset; no changes made'
