@@ -23,8 +23,8 @@ GitHub 自动生成的 Source code 压缩包只包含发行资料。第三方软
 
 ## 四足 ARM64 软件预览
 
-[ARM64 Release](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-arm64-preview.1) · [ARM64 安装与范围](docs/ARM64_PREVIEW_1.zh-CN.md)
+[ARM64 Release](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-arm64-preview.2) · [ARM64 安装与范围](docs/ARM64_PREVIEW_2.zh-CN.md)
 
 原生 ARM64 软件验证通过；Jetson 实机安装、DM-MC02 完整通信固件与 RS04 实机联调仍待完成。此预览不启用电机输出。
 
-2026-10-08 开发进度：STM32 USB CDC 回调、RNG 启动会话与故障锁存接线层已合并到开发主分支（PR #9，5244ece）。22 项测试、固定厂商头文件的 Cortex-M7 对象编译及 ARM64 最终镜像验证通过。该增量属于板卡台架开发，不随现有 ARM64 安装包分发；完整链接、刷写、三路 CAN 收发与 RS04 实机验收仍待完成。现有 Release 附件与校验值保持不变。
+2026-10-08 更新：PR #10 的三路 CAN 只读接收、USB STATUS 与故障锁存代码已合并（6bcc8ad）。ARM64 preview.2 更新编译版主机协议模块，并附通信软件验证结果：42 项测试、8 个 Cortex-M7 对象编译/可重定位链接及 ARM64 镜像验证通过。安装包不含可烧录 DM-MC02 固件，尚缺板级 RNG、RTOS 接线、完整链接和实机验收；禁止电机使能。详见 [preview.2 安装与验收范围](docs/ARM64_PREVIEW_2.zh-CN.md)。原 [ARM64 preview.1](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-arm64-preview.1) 及 amd64 preview.5 保持不变。

@@ -1,0 +1,31 @@
+name: Publish ARM64 preview 2
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-arm64-preview2.yml'
+      - 'scripts/download_arm64_preview2.py'
+      - 'scripts/publish_arm64_preview2.py'
+      - 'assets/v0.2.0-arm64-preview.2/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-arm64-preview2
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download complete installer and verify pinned SHA256
+        run: python3 scripts/download_arm64_preview2.py
+      - name: Upload draft, verify every asset, then publish prerelease
+        run: python3 scripts/publish_arm64_preview2.py
