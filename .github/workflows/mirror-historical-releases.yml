@@ -1,0 +1,24 @@
+name: Mirror historical OmindOS releases
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mirror-historical-releases.yml'
+      - 'scripts/mirror_historical_releases.py'
+      - 'history/manifest.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: mirror-historical-releases
+  cancel-in-progress: false
+jobs:
+  mirror:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Copy original tags, verify assets, and publish historical versions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/mirror_historical_releases.py

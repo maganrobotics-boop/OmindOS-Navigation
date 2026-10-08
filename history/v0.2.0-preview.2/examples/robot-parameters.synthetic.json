@@ -1,0 +1,18 @@
+{
+  "robot_id": "fixture-a",
+  "kinematics": {
+    "urdf_xml": "<robot name=\"fixture\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\".01\" iyy=\".02\" izz=\".02\" ixy=\"0\" ixz=\"0\" iyz=\"0\"/></inertial></link><link name=\"arm\"><inertial><mass value=\"1\"/><inertia ixx=\".01\" iyy=\".02\" izz=\".02\" ixy=\"0\" ixz=\"0\" iyz=\"0\"/></inertial></link><joint name=\"hinge\" type=\"revolute\"><parent link=\"base\"/><child link=\"arm\"/><axis xyz=\"0 1 0\"/><limit lower=\"-1\" upper=\"1\" effort=\"10\" velocity=\"2\"/></joint></robot>"
+  },
+  "dynamics": {
+    "joints": {
+      "hinge": {
+        "motor_model": "synthetic-test-motor",
+        "reduction_ratio": 5.0,
+        "direction": 1,
+        "zero_offset_rad": 0.0,
+        "torque_limit_nm": 8.0,
+        "velocity_limit_rad_s": 1.0
+      }
+    }
+  }
+}

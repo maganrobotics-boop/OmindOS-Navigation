@@ -28,3 +28,14 @@ GitHub 自动生成的 Source code 压缩包只包含发行资料。第三方软
 原生 ARM64 软件验证通过；Jetson 实机安装、DM-MC02 完整通信固件与 RS04 实机联调仍待完成。此预览不启用电机输出。
 
 2026-10-08 更新：PR #10 的三路 CAN 只读接收、USB STATUS 与故障锁存代码已合并（6bcc8ad）。ARM64 preview.2 更新编译版主机协议模块，并附通信软件验证结果：42 项测试、8 个 Cortex-M7 对象编译/可重定位链接及 ARM64 镜像验证通过。安装包不含可烧录 DM-MC02 固件，尚缺板级 RNG、RTOS 接线、完整链接和实机验收；禁止电机使能。详见 [preview.2 安装与验收范围](docs/ARM64_PREVIEW_2.zh-CN.md)。原 [ARM64 preview.1](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-arm64-preview.1) 及 amd64 preview.5 保持不变。
+
+## 历史发行版
+
+以下版本从 Omind-Robotics 原发行仓保留，原标签、附件与 SHA256 不变；说明按原发行时的功能范围保存。
+
+| 版本 | 内容与适用范围 | 使用说明 |
+| --- | --- | --- |
+| [v0.2.0-preview.2](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-preview.2) | 统一导航预览＋参数注册 API、URDF／电机配置与版本保存；约 265 MB 离线包 | [完整说明](history/v0.2.0-preview.2/README.md) |
+| [v0.2.0-preview.1](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-preview.1) | 轮式／四足统一导航接口与平面运动学预览；约 265 MB 离线包 | [完整说明](history/v0.2.0-preview.1/README.md) |
+
+历史 preview.1／preview.2 的完整安装包沿用原下载服务器链接；原 GitHub 附件同步保留。两版不含四足步态和平衡控制，详细范围见各自发行说明。

@@ -1,0 +1,52 @@
+{
+  "source_repository": "Omind-Robotics/OmindOS-Navigation-Release",
+  "source_release_url": "https://github.com/Omind-Robotics/OmindOS-Navigation-Release/releases/tag/v0.2.0-preview.2",
+  "source_release_id": 406426006,
+  "original_published_at": "2026-10-08T04:53:02Z",
+  "source_tag": "v0.2.0-preview.2",
+  "source_tag_sha": "154f9d36d6ebda163ca1b39913d282709cbb78da",
+  "documentation": {
+    "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "LICENSES/MEVIUS2-MIT.txt": "642c1edf957dab532062b39e525157be7e823762e9d8b14a0495f635c14d83b7",
+    "NOTICE": "f8033e192fcdf77fcdec21e10616430488154437cf1bde4c81a0a240e8097a62",
+    "README.md": "e0f3a3bd22155942310a8edf376309b126d8fc65547ad73e42f2e0e8debcc8c7",
+    "RELEASE_NOTES.md": "d636feedcc03d6c34dcebf70b9cb1fa4eaa8f1244347185ce1d80cf8c9b0b079",
+    "config/customer/quadruped.example.json": "c7a6c0c10621e533c8decb643f807870450a4cc9d6e4092d6f51d97b8a8c7d1a",
+    "config/customer/wheeled_diff.example.json": "e6513f87f2f1a24c8fbad4e3db3fea7a0f0abb55488a94751b64d92ad2ff754a",
+    "config/customer/wheeled_omni.example.json": "13987d632ab1ca1868d0737efd5320452fa9bdeead1b46aa326282f3fe523153",
+    "config/robot_profiles/mevius2.customer-record.json": "f912fba9108fe9155087f064fea7ff7028713aab933066bf18f8bc107b4afb5f",
+    "docs/CUSTOMER_ROBOT_CONFIGURATION.zh-CN.md": "b9f1db9d65f2dc99b4891d84da33b9a356d9085f2a68f871cc05cf09ff209d7d",
+    "docs/INSTALL.zh-CN.md": "e0f3a3bd22155942310a8edf376309b126d8fc65547ad73e42f2e0e8debcc8c7",
+    "docs/MEVIUS2_INTEGRATION.zh-CN.md": "857c16e419afca546bccccefc1b0ea1c4b1cf2c23e7e813d4196cea979a52878",
+    "docs/PUBLICATION_STATUS.md": "8f21886c0e551d7997ec7b722a76be8ed6ec97858b45955a1ecf568c8e9747de",
+    "docs/ROBOT_PARAMETER_API.zh-CN.md": "0fbc83cd3da6b21f95c84111e37919ca1e03b340adee91241196d2b2d0451314",
+    "docs/UNIFIED_CUSTOMER_RELEASE.zh-CN.md": "40bace8f32d9743a1a8156cc38bf1acd0bea472fa2c20e5ebb67911e03eae5dd",
+    "examples/robot-parameters.synthetic.json": "7d1e5bc041d2d710214c4ae722861243739c10a283b2bd28e7ab34bba7454834"
+  },
+  "link_adjustments": {
+    "history/v0.2.0-preview.2/docs/INSTALL.zh-CN.md": [
+      {
+        "from": "docs/ROBOT_PARAMETER_API.zh-CN.md",
+        "to": "ROBOT_PARAMETER_API.zh-CN.md"
+      },
+      {
+        "from": "docs/CUSTOMER_ROBOT_CONFIGURATION.zh-CN.md",
+        "to": "CUSTOMER_ROBOT_CONFIGURATION.zh-CN.md"
+      },
+      {
+        "from": "docs/MEVIUS2_INTEGRATION.zh-CN.md",
+        "to": "MEVIUS2_INTEGRATION.zh-CN.md"
+      }
+    ],
+    "history/v0.2.0-preview.2/docs/MEVIUS2_INTEGRATION.zh-CN.md": [
+      {
+        "from": "../scripts/validate_mevius2_reference.py",
+        "to": "https://github.com/Omind-Robotics/OmindOS-Navigation-Release/blob/154f9d36d6ebda163ca1b39913d282709cbb78da/scripts/validate_mevius2_reference.py"
+      },
+      {
+        "from": "validation/mevius2-reference-20261008.json",
+        "to": "https://github.com/Omind-Robotics/OmindOS-Navigation-Release/blob/154f9d36d6ebda163ca1b39913d282709cbb78da/docs/validation/mevius2-reference-20261008.json"
+      }
+    ]
+  }
+}
