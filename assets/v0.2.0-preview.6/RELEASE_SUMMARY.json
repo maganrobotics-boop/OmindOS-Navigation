@@ -1,0 +1,46 @@
+{
+  "release_tag": "v0.2.0-preview.6",
+  "delivery": "promoted_tested_candidates_without_repacking",
+  "source_merge": "94f90e3cc56becd829722500b0d881b091219280",
+  "desktop_build_source": "80cd7d907a97e6b3bdc35691fe5dcc3be5849a52",
+  "full_backend_version": "0.2.0-preview.5",
+  "backend_source_included": false,
+  "hardware_validated": false,
+  "arm64_included": false,
+  "windows_signed": false,
+  "baseline_bytes": 820449280,
+  "full_reduction_bytes": 280033280,
+  "full_reduction_percent": 34.13169915878286,
+  "files": [
+    {
+      "filename": "omindos-control-preview-0.2.0-preview.5-size-candidate.1-linux-amd64.tar",
+      "bytes": 540416000,
+      "sha256": "af2cc32308c0ffc0a14b26cd71f454b8b9566096573ee09fb09f191ec7eedbd8",
+      "platform": "linux-amd64",
+      "kind": "full-runtime",
+      "embedded_version": "0.2.0-preview.5",
+      "download_url": "https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.6/omindos-control-preview-0.2.0-preview.5-size-candidate.1-linux-amd64.tar",
+      "mirror_url": "https://omindos.cn/downloads/navigation/v0.2.0-preview.6/omindos-control-preview-0.2.0-preview.5-size-candidate.1-linux-amd64.tar"
+    },
+    {
+      "filename": "omindos-quadruped-workbench-0.2.0-size-candidate.1-linux-x64.tar.gz",
+      "bytes": 21990166,
+      "sha256": "134fc899a9c2f320527578d8eb80e88ffabb4d44e4e87942828edc0351b79bfe",
+      "platform": "linux-x64",
+      "kind": "desktop",
+      "embedded_version": "0.2.0-size-candidate.1",
+      "download_url": "https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.6/omindos-quadruped-workbench-0.2.0-size-candidate.1-linux-x64.tar.gz",
+      "mirror_url": "https://omindos.cn/downloads/navigation/v0.2.0-preview.6/omindos-quadruped-workbench-0.2.0-size-candidate.1-linux-x64.tar.gz"
+    },
+    {
+      "filename": "omindos-quadruped-workbench-0.2.0-size-candidate.1-windows-x64.zip",
+      "bytes": 8232521,
+      "sha256": "1001f67e9e6c8a54a619ffcee9a42b160f6a70aacda61b606eb9df8ac356ffc6",
+      "platform": "windows-x64",
+      "kind": "desktop",
+      "embedded_version": "0.2.0-size-candidate.1",
+      "download_url": "https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.6/omindos-quadruped-workbench-0.2.0-size-candidate.1-windows-x64.zip",
+      "mirror_url": "https://omindos.cn/downloads/navigation/v0.2.0-preview.6/omindos-quadruped-workbench-0.2.0-size-candidate.1-windows-x64.zip"
+    }
+  ]
+}

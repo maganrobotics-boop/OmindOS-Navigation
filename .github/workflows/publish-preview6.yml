@@ -1,0 +1,26 @@
+name: Publish quadruped split delivery preview 6
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish-preview6.yml', 'scripts/download_preview6.py', 'scripts/publish_preview6.py']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-preview6
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Download three complete installers and verify pinned hashes
+        run: python3 scripts/download_preview6.py
+      - name: Upload draft, verify every asset, then publish prerelease
+        run: python3 scripts/publish_preview6.py
