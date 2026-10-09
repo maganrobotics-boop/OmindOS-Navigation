@@ -1,7 +1,29 @@
 {
-  "source": "public preview.6 Linux x64 binary",
-  "package_sha256": "134fc899a9c2f320527578d8eb80e88ffabb4d44e4e87942828edc0351b79bfe",
+  "stage": "source-workbench-preview",
+  "hardware_validated": false,
+  "installer_updated": false,
+  "upstream_commit": "4f09680bb575574377b903bbc971bdb2695d507b",
+  "source_commit": "c5ae9ff40d6edd763d1418755822d8478b9c9dcf",
+  "viewport": {
+    "width": 1800,
+    "height": 1120
+  },
+  "browser": "154.0.8037.97",
   "title": "OmindOS · 机器人调参工作台",
-  "info": "12 个主体关节",
-  "page_errors": []
+  "mesh_loaded": 13,
+  "mesh_failed": 0,
+  "active_joints": 12,
+  "page_errors": [],
+  "mesh_request_errors": [],
+  "checks": [
+    "complete_mesh_webgl_render",
+    "12_joints",
+    "quadruped_only_controls",
+    "apply_configuration",
+    "point_one_degree_jog",
+    "stop_latches_motion"
+  ],
+  "image_sha256": "a4796075a14b8cb8ebd461503effce9c4bf5f5b160937062f58d4a0c7cbd463a",
+  "source_merge_commit": "7b27672a860c41e8679c1403307f0dc259d44998",
+  "capture_workflow_run": 37932510025
 }
