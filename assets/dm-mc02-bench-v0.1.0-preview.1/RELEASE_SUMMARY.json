@@ -1,0 +1,22 @@
+{
+  "tag": "dm-mc02-bench-v0.1.0-preview.1",
+  "package": "omindos-dm-mc02-bench-0.1.0-preview.1.zip",
+  "package_bytes": 865091,
+  "package_sha256": "b12824406e54d861602106aae4d3ff95e3915221547bd846769bcaa882fee312",
+  "source_repository": "Omind-Robotics/OmindOS-Navigation",
+  "source_head_commit": "f7d4fcad30622e6e1fc71ff1702fa894c1fe0c57",
+  "source_merge_commit": "3293dfc83e32b8e56f1f185b80e19e56a2fe600d",
+  "source_pr": 18,
+  "software_compile_and_link_passed": true,
+  "flashable_format_generated": true,
+  "hardware_tested": false,
+  "backend_source_included": false,
+  "can_mode": "BUS_MONITORING; no data TX or ACK; TX allocation=0",
+  "flash_base": "0x08000000",
+  "bootloader_offset_verified": false,
+  "checksums": {
+    "dm-mc02-observer.elf": "aa268dc34da5e0f889d8dedda5c9598d4545648b8e35ca3aca5b76d66f777e3f",
+    "dm-mc02-observer.hex": "66996f78875be484c31662b98a13ad19f747f48f9f555efc740165b518947e83",
+    "dm-mc02-observer.bin": "736e19dd709d38b19933b3ae874fa03ee03c184da804e3b197536b71671452ec"
+  }
+}

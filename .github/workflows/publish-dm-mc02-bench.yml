@@ -1,0 +1,28 @@
+name: Publish DM-MC02 receive-only bench firmware
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-dm-mc02-bench.yml'
+      - 'scripts/publish_dm_mc02_bench.py'
+      - 'assets/dm-mc02-bench-v0.1.0-preview.1/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-dm-mc02-bench-preview1
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify pinned firmware and publish prerelease
+        run: python3 scripts/publish_dm_mc02_bench.py
