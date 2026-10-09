@@ -25,7 +25,8 @@ def gh(*args):
 
 
 def api(path):
-    return json.loads(gh('api', 'repos/' + os.environ['GH_REPO'] + '/' + path))
+    return json.loads(gh('api', '--header', 'Cache-Control: no-cache',
+                         'repos/' + os.environ['GH_REPO'] + '/' + path))
 
 
 def prepare():
@@ -69,7 +70,11 @@ def main():
         gh('release', 'create', TAG, '--target', os.environ['GITHUB_SHA'],
            '--draft', '--prerelease', '--title', 'OmindOS DM-MC02 禁使能台架固件 0.1.0-preview.1',
            '--notes-file', str(ROOT / 'RELEASE_NOTES.zh-CN.md'))
-        releases = [r for r in api('releases?per_page=100') if r['tag_name'] == TAG]
+        for attempt in range(12):
+            releases = [r for r in api('releases?per_page=100') if r['tag_name'] == TAG]
+            if releases:
+                break
+            time.sleep(5)
     assert len(releases) == 1
     release = releases[0]
     assert release['prerelease']
@@ -91,9 +96,11 @@ def main():
     for name in NAMES:
         assert (assets[name]['size'], assets[name]['digest']) == expected[name], name
     if release['draft']:
-        gh('api', '--method', 'PATCH', 'repos/' + os.environ['GH_REPO'] + '/releases/' + str(release['id']),
-           '-F', 'draft=false', '-F', 'prerelease=true', '-f', 'make_latest=false')
-    result = api('releases/' + str(release['id']))
+        result = json.loads(gh('api', '--method', 'PATCH',
+                               'repos/' + os.environ['GH_REPO'] + '/releases/' + str(release['id']),
+                               '-F', 'draft=false', '-F', 'prerelease=true', '-f', 'make_latest=false'))
+    else:
+        result = release
     assert not result['draft'] and result['prerelease']
     print(json.dumps({'url': result['html_url'], 'verified_assets': len(NAMES),
                       'prerelease': True, 'hardware_tested': False}, ensure_ascii=False))
