@@ -1,37 +1,6 @@
 {
+  "release_id": 408060620,
   "installer_sha256": "7f48bffff4c144f89d8f159c4eceec678f070b30948456ae60c984fefff07f4d",
   "validated_commit": "339ca5199089a5fbf8b49e330dabbcc804ea8b7e",
-  "parts": [
-    {
-      "name": "ubuntu-preview7-metadata",
-      "download_url": "https://sdmntprcentralus.oaiusercontent.com/files/00000000-b840-81f5-b50c-5b6fb2ea252a/raw?se=2026-10-09T15%3A42%3A55Z&sp=r&sv=2026-02-06&sr=b&scid=01a12140-5f6b-7dcb-9ffa-20b94dd1c9c8&skoid=78501c7f-f65d-4e8d-9110-bed29e1beb41&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-09T11%3A53%3A05Z&ske=2026-10-10T11%3A53%3A05Z&sks=b&skv=2026-02-06&sig=B/sVxEaDZzGleYv4niJ0PH3f9ZecnzKS5ZGD9LDeyzo%3D",
-      "sha256": "650182d7e6e45d42c2780264b2a378bf7dde8c1e9c4f87fc6fec16eb4ea97905",
-      "members": [
-        "VALIDATION.json",
-        "DYNAMICS_VALIDATION.json",
-        "BROWSER_VALIDATION.json",
-        "RELEASE_SUMMARY.json",
-        "SHA256SUMS-release.txt",
-        "workbench.png"
-      ]
-    },
-    {
-      "name": "ubuntu-preview7-part01",
-      "download_url": "https://sdmntprwestus2.oaiusercontent.com/files/00000000-13b8-81f8-917d-433a036fb718/raw?se=2026-10-09T15%3A43%3A17Z&sp=r&sv=2026-02-06&sr=b&scid=01a12140-5f6b-7dcb-9ffa-20b94dd1c9c8&skoid=78501c7f-f65d-4e8d-9110-bed29e1beb41&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-09T01%3A29%3A12Z&ske=2026-10-10T01%3A29%3A12Z&sks=b&skv=2026-02-06&sig=JmMp2t%2B8tvzt1CA0kgmSH4nxPY3AKl1mvdKkMsy%2Bg2k%3D",
-      "sha256": "227be47919bbc0efdb865f454c962b8843e4770ba5ffc7a8c5da623584567613",
-      "members": [
-        "package.part01"
-      ]
-    },
-    {
-      "name": "ubuntu-preview7-part00",
-      "download_url": "https://sdmntprcentralus.oaiusercontent.com/files/00000000-4074-81f5-b732-80508a0b2e6f/raw?se=2026-10-09T15%3A43%3A10Z&sp=r&sv=2026-02-06&sr=b&scid=01a12140-5f6b-7dcb-9ffa-20b94dd1c9c8&skoid=78501c7f-f65d-4e8d-9110-bed29e1beb41&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-09T13%3A32%3A05Z&ske=2026-10-10T13%3A32%3A05Z&sks=b&skv=2026-02-06&sig=mBIcxj9Z%2BLc6R2NYff5M/%2Bhq4/CK0HBwib%2B8UvvhcYs%3D",
-      "sha256": "94138588ea76f1d67617dc03c8cf3d033bf4059642963b017820722e3d051f6e",
-      "members": [
-        "package.part00"
-      ]
-    }
-  ],
-  "release_id": 408060620,
-  "attempt": 2
+  "parts": []
 }

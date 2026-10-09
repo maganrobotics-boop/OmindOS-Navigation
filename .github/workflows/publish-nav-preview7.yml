@@ -1,8 +1,5 @@
 name: Publish verified Ubuntu Navigation preview 7
 on:
-  push:
-    branches: [codex/publish-nav-preview7-20261009]
-    paths: ['transfer/nav-preview7.json']
   workflow_dispatch:
 permissions:
   contents: write
