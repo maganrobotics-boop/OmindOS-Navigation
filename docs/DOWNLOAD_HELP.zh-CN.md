@@ -6,7 +6,11 @@
 
 **普通用户只下载首页的 Ubuntu 完整安装包，工作台和四足算法环境已经包含。** 轻量工作台保留给只做调参的历史用户；早期统一导航包、ARM64 包和板卡固件用于专业开发场景，见[专业指南](DEVELOPER.zh-CN.md)，无需全部下载。
 
-## 为什么下载名与发行版本不一样？
+## 当前版本如何校验？
+
+preview.7 的文件名与应用版本均为 `0.2.0-preview.7`。下载后可用[SHA256 清单](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.7/SHA256SUMS-release.txt)核对；解压后运行 `./omindos verify` 验证运行镜像。
+
+## 历史包为什么下载名与发行版本不一样？
 
 preview.6 原样发布已验收的构建，文件名保留 `size-candidate.1`；完整包内业务版本仍是 preview.5。这些文件就是公开发行资产，名称、内容和 SHA256 没有重新打包改变。版本号属于各自用途，不能只按数字大小选择。
 
@@ -23,7 +27,7 @@ preview.6 原样发布已验收的构建，文件名保留 `size-candidate.1`；
 
 ## 下载失败怎么办？
 
-preview.6 的 Ubuntu 工作台和完整仿真包提供 OmindOS 下载镜像：
+当前 preview.7 请从[发行页](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-preview.7)重试下载。以下镜像属于历史 preview.6，尚不包含新版界面：
 
 - [Ubuntu 轻量工作台镜像](https://omindos.cn/downloads/navigation/v0.2.0-preview.6/omindos-quadruped-workbench-0.2.0-size-candidate.1-linux-x64.tar.gz)
 - [完整仿真包镜像](https://omindos.cn/downloads/navigation/v0.2.0-preview.6/omindos-control-preview-0.2.0-preview.5-size-candidate.1-linux-amd64.tar)
@@ -46,7 +50,8 @@ DM-MC02 只读模式不发送 CAN 数据帧，也不提供 ACK；STOP 仅锁存�
 
 | 交付 | 校验值 | 验证记录 / 技术说明 |
 | --- | --- | --- |
-| 轻量工作台 / 完整仿真包 | [preview.6 SHA256](../assets/v0.2.0-preview.6/SHA256SUMS-release.txt) | [验证记录](../assets/v0.2.0-preview.6/VALIDATION.json) · [安装说明](CONTROL_PREVIEW_6.zh-CN.md) |
+| 当前 Ubuntu 完整包 | [preview.7 SHA256](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.7/SHA256SUMS-release.txt) | [完整包验收](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.7/VALIDATION.json) · [浏览器验收](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.7/BROWSER_VALIDATION.json) |
+| 历史轻量工作台 / 完整仿真包 | [preview.6 SHA256](../assets/v0.2.0-preview.6/SHA256SUMS-release.txt) | [验证记录](../assets/v0.2.0-preview.6/VALIDATION.json) · [安装说明](CONTROL_PREVIEW_6.zh-CN.md) |
 | 统一导航包 | [导航 SHA256](https://omindos.cn/downloads/navigation/v0.2.0-preview.2/SHA256SUMS-release.txt) | [原版安装和验证说明](../history/v0.2.0-preview.2/README.md) |
 | ARM64 包 | [ARM64 SHA256](../assets/v0.2.0-arm64-preview.2/SHA256SUMS-release.txt) | [验证记录](../assets/v0.2.0-arm64-preview.2/VALIDATION.json) · [精确构建](ARM64_PREVIEW_2.zh-CN.md) |
 | DM-MC02 固件 | [固件 SHA256](../assets/dm-mc02-bench-v0.1.0-preview.1/SHA256SUMS-release.txt) | [完整固件验证](../assets/dm-mc02-bench-v0.1.0-preview.1/VALIDATION.json) |

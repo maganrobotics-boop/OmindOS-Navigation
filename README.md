@@ -6,11 +6,11 @@
 
 ## 下载 Ubuntu 安装包
 
-**约 540 MB · Ubuntu 22.04 / 24.04 · Intel / AMD 64 位电脑**
+**0.2.0-preview.7 · 约 678 MB · Ubuntu · Intel / AMD 64 位电脑**
 
 工作台、ROS 2、四足策略和 MuJoCo 仿真环境已经包含在包内。**只下载这一份，无需再下载轻量工作台或独立算法包。** 首次运行需要电脑已安装 Docker Engine。
 
-### [下载 Ubuntu 安装包 →](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.6/omindos-control-preview-0.2.0-preview.5-size-candidate.1-linux-amd64.tar)
+### [下载 Ubuntu 安装包 →](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.7/omindos-navigation-0.2.0-preview.7-ubuntu-amd64.tar)
 
 [安装与首次使用指南 →](docs/GET_STARTED.zh-CN.md)
 
@@ -22,11 +22,9 @@
 
 ## 工作台长什么样？
 
-![Ubuntu 工作台开发预览：完整四足参考模型](docs/media/quadruped-workbench.png)
+![Ubuntu 安装包实际工作台：完整四足参考模型](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.7/workbench.png)
 
-**左侧改参数，中间看三维模型，右侧点动、试运行和保存版本。** 图为新版 Ubuntu 工作台的实际开发预览，使用 MEVIUS2 完整外观参考模型与 12 个关节。可导入自己的 URDF 与参数。
-
-当前下载包尚未包含这次界面更新；参考模型不是客户机器人的标定结果，真机未验收。
+**左侧改参数，中间看三维模型，右侧点动、试运行和保存版本。** 图为新版 Ubuntu 完整安装包启动后的实际界面，使用 MEVIUS2 完整外观参考模型与 12 个关节。可导入自己的 URDF 与参数。
 
 ## 自己的参数怎么改？
 
@@ -38,7 +36,7 @@
 
 ## 需要登录吗？可以调用 API 吗？
 
-**当前本地工作台无需注册或登录。** 启动后在浏览器打开 `http://127.0.0.1:8085/`，参数配置保存在本机。
+**当前本地工作台无需注册或登录。** 启动后在浏览器打开 `http://127.0.0.1:8085/`，参数配置保存在本机独立数据目录，更新程序时可继续使用。
 
 开发者可以用自己的程序调用本地 API，提交参数、保存和读取配置版本。[API 使用指南 →](docs/API_GUIDE.zh-CN.md)
 

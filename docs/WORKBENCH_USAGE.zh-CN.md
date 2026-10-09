@@ -4,15 +4,15 @@
 
 ## 需要登录吗？
 
-**当前本地工作台不需要账号、密码或注册。** 在安装目录执行 `./omindos workbench`，然后用浏览器打开 `http://127.0.0.1:8085/`。启动终端须保持运行；配置保存在当前安装目录的 `data/`。
+**当前本地工作台不需要账号、密码或注册。** 在安装目录执行 `./omindos workbench`，然后用浏览器打开 `http://127.0.0.1:8085/`。启动终端须保持运行；preview.7 默认将配置保存在 `~/.local/share/omindos-navigation/data`；旧目录迁移见[安装步骤](GET_STARTED.zh-CN.md)。
 
 这是本机工作台，登录 OA / 官网 / 学习平台的账号不会用于这里。当前没有云端用户账号登录或自动云同步功能。
 
 ## 界面怎么分？
 
-![Ubuntu 工作台开发预览：完整四足参考模型](media/quadruped-workbench.png)
+![Ubuntu 完整安装包实际工作台](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.7/workbench.png)
 
-图为新版 Ubuntu 工作台的实际开发预览，加载 MEVIUS2 完整外观参考模型（12 个关节）。当前下载包尚未包含这次界面更新。机器人外观与关节列表以导入的 URDF 为准，客户参数须按实际硬件标定。
+图为 preview.7 Ubuntu 完整安装包的实际界面，默认加载 MEVIUS2 完整外观参考模型（13 个网格、12 个关节）。机器人外观与关节列表以导入的 URDF 为准，参数可按客户硬件设置。
 
 | 区域 | 用途 |
 | --- | --- |

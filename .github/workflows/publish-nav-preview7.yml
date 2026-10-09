@@ -1,0 +1,21 @@
+name: Publish verified Ubuntu Navigation preview 7
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: navigation-preview7-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify the complete installer and publish immutable assets
+        run: python3 scripts/publish_nav_preview7.py
