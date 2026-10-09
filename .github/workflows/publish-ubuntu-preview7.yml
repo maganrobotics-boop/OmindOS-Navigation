@@ -1,0 +1,58 @@
+name: Build and publish one Ubuntu installer preview 7
+on:
+  push:
+    branches: [codex/ubuntu-preview7-release-20261009]
+    paths: ['.github/workflows/publish-ubuntu-preview7.yml','scripts/*preview7*','assets/v0.2.0-preview.7/*update*']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-ubuntu-preview7
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 35
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      CHROMIUM_EXECUTABLE: /usr/bin/google-chrome
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test dependencies
+        run: |
+          npm install --prefix build/capture --no-save playwright@1.58.0
+          test -x /usr/bin/google-chrome
+          sudo apt-get install -y fonts-noto-cjk
+      - name: Build, independently install and verify the complete Ubuntu package
+        env:
+          NODE_PATH: ${{ github.workspace }}/build/capture/node_modules
+        run: python scripts/build_ubuntu_preview7.py
+      - name: Preserve validated installer and evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: ubuntu-preview7-validated-installer
+          path: |
+            assets/v0.2.0-preview.7/omindos-navigation-*.tar
+            assets/v0.2.0-preview.7/VALIDATION.json
+            assets/v0.2.0-preview.7/RELEASE_SUMMARY.json
+            assets/v0.2.0-preview.7/SHA256SUMS-release.txt
+            assets/v0.2.0-preview.7/RELEASE_NOTES.zh-CN.md
+            docs/media/quadruped-workbench.png
+            docs/media/CAPTURE.json
+          if-no-files-found: error
+      - name: Upload draft, verify hashes, publish Ubuntu prerelease
+        run: python scripts/publish_ubuntu_preview7.py
+      - name: Save release reports and installed-package screenshot
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/v0.2.0-preview.7/VALIDATION.json assets/v0.2.0-preview.7/RELEASE_SUMMARY.json assets/v0.2.0-preview.7/SHA256SUMS-release.txt assets/v0.2.0-preview.7/RELEASE_NOTES.zh-CN.md docs/media/
+          git commit -m 'docs: record validated Ubuntu preview7 installation and release'
+          git push origin HEAD:${{ github.ref_name }}
