@@ -1,5 +1,13 @@
 # OmindOS DM-MC02 禁使能台架固件 0.1.0-preview.1
 
+[返回首页](../README.md)
+
+**仅供嵌入式开发者进行禁使能台架验证，普通电脑体验无需下载。** 这是烧入 DM-MC02 板卡的固件，不是 Ubuntu 桌面安装包；先阅读下方首次上板条件。
+
+**[下载完整固件 ZIP（0.87 MB）](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/dm-mc02-bench-v0.1.0-preview.1/omindos-dm-mc02-bench-0.1.0-preview.1.zip)**
+
+ZIP 包含 ELF / HEX / BIN、静态验证证据、重建说明和许可证。[SHA256 校验](../assets/dm-mc02-bench-v0.1.0-preview.1/SHA256SUMS-release.txt) · [发行页和单文件下载](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/dm-mc02-bench-v0.1.0-preview.1)
+
 这是 STM32H723 / DM-MC02 的只读观察台架预发布，**真实硬件尚未验收**。
 三路 FDCAN 从首次初始化起使用 BUS_MONITORING；TX 分配为零，不发送数据帧，也不提供 ACK。
 不包含电机使能、运动目标发送或厂家电机测试任务。软件 STOP 仅锁存本机会话，不能替代硬件断电。

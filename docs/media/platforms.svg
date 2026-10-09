@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="370" viewBox="0 0 1200 370" role="img" aria-labelledby="title desc">
+  <title id="title">OmindOS 三类机器人平台</title>
+  <desc id="desc">差速轮式支持前后和转向，全向轮式支持横移，四足使用导航速度接口和独立运动控制。图为平台类型示意，不是硬件实测。</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#102438"/><stop offset="1" stop-color="#061420"/></linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8" fill="none" stroke="#5ce5c4" stroke-width="1.5"/></marker>
+  </defs>
+  <rect width="1200" height="370" rx="20" fill="url(#bg)"/>
+  <g font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" fill="#eff8ff">
+    <text x="44" y="57" font-size="26" font-weight="700" letter-spacing="2">OmindOS Navigation</text>
+    <text x="1154" y="54" text-anchor="end" font-size="18" fill="#a4b7c9">平台类型示意</text>
+    <path d="M400 88V324M800 88V324" stroke="#294153"/>
+    <g transform="translate(200 178)">
+      <rect x="-71" y="-49" width="142" height="100" rx="22" fill="#315d79" stroke="#75c6e8" stroke-width="3"/>
+      <rect x="-96" y="-39" width="28" height="77" rx="9" fill="#0b1018" stroke="#93a9bb" stroke-width="3"/>
+      <rect x="68" y="-39" width="28" height="77" rx="9" fill="#0b1018" stroke="#93a9bb" stroke-width="3"/>
+      <circle r="16" fill="#5ce5c4"/>
+      <path d="M0 -57V-87" stroke="#5ce5c4" stroke-width="4" marker-end="url(#arrow)"/>
+      <path d="M-55 72Q0 99 55 72" fill="none" stroke="#5ce5c4" stroke-width="4" marker-end="url(#arrow)"/>
+    </g>
+    <g transform="translate(600 178)">
+      <rect x="-65" y="-53" width="130" height="106" rx="21" fill="#315d79" stroke="#75c6e8" stroke-width="3"/>
+      <g fill="#0b1018" stroke="#93a9bb" stroke-width="3">
+        <rect x="-89" y="-53" width="28" height="39" rx="8"/><rect x="61" y="-53" width="28" height="39" rx="8"/>
+        <rect x="-89" y="14" width="28" height="39" rx="8"/><rect x="61" y="14" width="28" height="39" rx="8"/>
+      </g>
+      <circle r="16" fill="#5ce5c4"/>
+      <path d="M0 -61V-87M-102 0H-128M102 0H128" stroke="#5ce5c4" stroke-width="4" marker-end="url(#arrow)"/>
+    </g>
+    <g transform="translate(1000 178)" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-62 -22L-89 10L-83 57M-42 0L-59 43L-54 82M49 -18L79 14L69 63M67 2L95 47L87 82" fill="none" stroke="#6c9ab5" stroke-width="15"/>
+      <path d="M-74 -45L47 -57L77 -22L-45 -8Z" fill="#315d79" stroke="#75c6e8" stroke-width="3"/>
+      <circle cx="52" cy="-37" r="10" fill="#5ce5c4"/>
+      <g fill="#5ce5c4" stroke="none"><circle cx="-83" cy="57" r="7"/><circle cx="-54" cy="82" r="7"/><circle cx="69" cy="63" r="7"/><circle cx="87" cy="82" r="7"/></g>
+    </g>
+    <g text-anchor="middle" font-size="32" font-weight="700">
+      <text x="200" y="315">差速轮式</text><text x="600" y="315">全向轮式</text><text x="1000" y="315">四足</text>
+    </g>
+  </g>
+</svg>
