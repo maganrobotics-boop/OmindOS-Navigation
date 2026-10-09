@@ -6,7 +6,9 @@
 
 三路接收开发采用 BUS_MONITORING，无 CAN 发送或 ACK；可解析 RS04 类型 2/17/21，并区分未收到、新鲜、过期和故障锁存。参数帧仅是被动观察，尚未完成实机参数请求—应答验收。
 
-仍待完成：板级 RNG 初始化、RTOS 任务接线、完整固件链接/刷写、Jetson 实机安装、三路 CAN 电气验收及 RS04 联调。控制频率、客户整机步态和平衡尚未实测。
+本包发行时，板级 RNG、RTOS 接线和完整固件链接仍待完成。**2026-10-09 项目进展：这些软件缺口已在独立 DM-MC02 台架固件中补齐，ELF/HEX/BIN 已发布**，见[固件说明与上板条件](DM_MC02_BENCH_PREVIEW_1.zh-CN.md)。本 ARM64 安装包不包含该固件，附件及 SHA256 保持原样。
+
+仍待完成：实际刷写、Jetson 实机安装、三路 CAN 电气验收及 RS04 联调。控制频率、客户整机步态和平衡尚未实测。
 
 [安装与范围说明](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/blob/main/docs/ARM64_PREVIEW_2.zh-CN.md)
 
