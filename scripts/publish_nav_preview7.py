@@ -65,13 +65,13 @@ def main():
     assert not validation['backend_source_included'] and not validation['hardware_validated']
     shutil.copy2('release-notes/nav-preview7.zh-CN.md',ROOT / NAMES[-1])
     expected = {name: ((ROOT/name).stat().st_size,'sha256:'+sha(ROOT/name)) for name in NAMES}
-    releases = api('releases?per_page=100')
+    releases = [api('releases/'+str(transfer['release_id']))] if transfer.get('release_id') else api('releases?per_page=100')
     matches = [r for r in releases if r['tag_name'] == TAG]
     if not matches:
-        gh('release','create',TAG,'--draft','--prerelease','--target',os.environ['GITHUB_SHA'],
-           '--title','OmindOS Navigation Ubuntu 完整包 · 0.2.0-preview.7',
-           '--notes-file',str(ROOT/NAMES[-1]))
-        release = api('releases/tags/'+TAG)
+        release = json.loads(gh('api','--method','POST','repos/'+REPO+'/releases',
+            '-f','tag_name='+TAG,'-f','target_commitish='+os.environ['GITHUB_SHA'],
+            '-f','name=OmindOS Navigation Ubuntu 完整包 · 0.2.0-preview.7',
+            '-f','body='+(ROOT/NAMES[-1]).read_text(),'-F','draft=true','-F','prerelease=true'))
     else:
         assert len(matches) == 1
         release = matches[0]
