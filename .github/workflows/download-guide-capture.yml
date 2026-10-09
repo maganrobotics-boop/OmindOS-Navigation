@@ -4,7 +4,7 @@ on:
     branches: [codex/download-guide-20261009]
     paths: [.github/workflows/download-guide-capture.yml]
 permissions:
-  contents: read
+  contents: write
 jobs:
   capture:
     runs-on: ubuntu-22.04
@@ -33,3 +33,12 @@ jobs:
         with:
           name: published-workbench-screenshots
           path: capture-output/
+      - name: Save verified screenshots on the documentation branch
+        run: |
+          mkdir -p docs/media
+          cp capture-output/quadruped-workbench.png capture-output/parameter-editor.png capture-output/CAPTURE.json docs/media/
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/media/quadruped-workbench.png docs/media/parameter-editor.png docs/media/CAPTURE.json
+          git commit -m 'Add actual screenshots from the verified public Ubuntu workbench'
+          git push origin HEAD:codex/download-guide-20261009
