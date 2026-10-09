@@ -12,29 +12,34 @@ Ubuntu 22.04 / 24.04，Intel / AMD 64 位电脑。在终端执行 `uname -m`，�
 
 ## 2. 下载并完整解压
 
-**[下载 Ubuntu 完整安装包（540.42 MB）](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.6/omindos-control-preview-0.2.0-preview.5-size-candidate.1-linux-amd64.tar)**
+**[下载 Ubuntu 完整安装包](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.7/omindos-navigation-0.2.0-preview.7-ubuntu-amd64.tar)**
 
 用文件管理器完整解压，或在下载目录执行：
 
 ```bash
-tar -xf omindos-control-preview-0.2.0-preview.5-size-candidate.1-linux-amd64.tar
+tar -xf omindos-navigation-0.2.0-preview.7-ubuntu-amd64.tar
 ```
 
 不要只复制其中的启动文件，配套镜像、模型和目录必须保留。需检查下载完整性时见[校验指南](DOWNLOAD_HELP.zh-CN.md)。
 
 ## 3. 打开工作台
 
-进入解压后的目录，找到 `omindos` 文件，在该目录打开终端，运行：
+进入解压后的目录，打开终端，安装并启动：
 
 ```bash
-./omindos workbench
+./install.sh
+"$HOME/.local/opt/omindos-navigation/0.2.0-preview.7/omindos" workbench
 ```
 
-首次启动会导入随包 Docker 镜像，需等待完成。在浏览器打开：
+安装会导入随包 Docker 镜像，需等待完成。也可在解压目录直接执行 `./omindos workbench`。在浏览器打开：
 
 **http://127.0.0.1:8085/**
 
-无需注册或登录。保持终端运行；结束时在终端按 `Ctrl+C`。工作台配置保存在包内 `data/`，升级前保留和备份该目录。
+无需注册或登录。保持终端运行；结束时在终端按 `Ctrl+C`。本版配置保存在 `~/.local/share/omindos-navigation/data`，与程序目录分开。旧版本配置若在原安装包的 `data/`，保留该目录，并在启动时指定：
+
+```bash
+OMINDOS_DATA_DIR="/原安装目录/data" ./omindos workbench
+```
 
 ## 4. 设置自己的机器人
 
@@ -44,7 +49,7 @@ tar -xf omindos-control-preview-0.2.0-preview.5-size-candidate.1-linux-amd64.tar
 
 ## 5. 按需运行包内算法
 
-只调参时，无需启动下面的功能。另开终端，在同一安装目录运行：
+只调参时，无需启动下面的功能。在安装目录运行所需命令。`ros-preview` 已包含工作台，应先结束原 `workbench`，避免同时占用 8085 端口：
 
 | 用途 | 命令 |
 | --- | --- |
@@ -59,4 +64,4 @@ tar -xf omindos-control-preview-0.2.0-preview.5-size-candidate.1-linux-amd64.tar
 
 完整包不包含旧版统一导航 Docker 镜像，也不包含 DM-MC02 可烧录固件。真实底盘、Jetson、RS04 和客户整机仍需独立验收。需要这些开发用途时进入[专业指南](DEVELOPER.zh-CN.md)。
 
-[精确版本、功能与兼容性](CONTROL_PREVIEW_6.zh-CN.md)
+[本版发布与验收记录](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-preview.7)

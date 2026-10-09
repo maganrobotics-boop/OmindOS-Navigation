@@ -32,16 +32,21 @@ def api(path):
 def main():
     transfer = json.loads(Path('transfer/nav-preview7.json').read_text())
     ROOT.mkdir(parents=True, exist_ok=True)
-    if transfer.get('download_url'):
-        download = Path('validated-installer.zip')
-        subprocess.run(['curl','--fail','--location','--silent','--show-error','--retry','2',
-                        '--output',str(download),transfer['download_url']],check=True)
-        assert sha(download) == transfer['archive_sha256'], 'Transfer archive hash mismatch'
-        with zipfile.ZipFile(download) as archive:
-            for name in NAMES[:-1]:
-                matches = [i for i in archive.infolist() if i.filename == name]
-                assert len(matches) == 1, ('Missing or duplicate artifact',name)
-                with archive.open(matches[0]) as src, (ROOT / name).open('wb') as dst:
+    if transfer.get('parts'):
+        for item in transfer['parts']:
+            download = Path(item['name'] + '.zip')
+            subprocess.run(['curl','--fail','--location','--silent','--show-error','--retry','2',
+                            '--output',str(download),item['download_url']],check=True)
+            assert sha(download) == item['sha256'], 'Transfer archive hash mismatch'
+            with zipfile.ZipFile(download) as archive:
+                for member in item['members']:
+                    assert member in NAMES[:-1] + ['package.part00','package.part01']
+                    assert archive.namelist().count(member) == 1, member
+                    with archive.open(member) as src, (ROOT/member).open('wb') as dst:
+                        shutil.copyfileobj(src,dst)
+        with (ROOT/NAMES[0]).open('wb') as dst:
+            for name in ['package.part00','package.part01']:
+                with (ROOT/name).open('rb') as src:
                     shutil.copyfileobj(src,dst)
     else:
         gh('release','download',TAG,'--dir',str(ROOT))
