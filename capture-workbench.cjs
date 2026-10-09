@@ -4,10 +4,10 @@ const fs=require('fs');
 fs.mkdirSync('capture-output',{recursive:true});
 const browser=await chromium.launch({headless:true});
 const page=await browser.newPage({viewport:{width:1500,height:1060},deviceScaleFactor:1});
-const errors=[];page.on('pageerror',e=>errors.push(e.message));
+page.setDefaultTimeout(20000);const errors=[];page.on('pageerror',e=>errors.push(e.message));
 for(let i=0;i<30;i++){try{await page.goto('http://127.0.0.1:8085/',{waitUntil:'networkidle',timeout:10000});break;}catch(e){if(i===29)throw e;await new Promise(r=>setTimeout(r,500));}}
 await page.locator('#example').click();
-await page.waitForFunction(()=>document.querySelector('#model-info').textContent.includes('12'));
+await page.waitForFunction(()=>document.querySelector('#model-name').textContent.includes('四足'), {timeout:15000});
 await page.locator('#fit').click();
 await page.waitForTimeout(1000);
 await page.screenshot({path:'capture-output/quadruped-workbench.png'});

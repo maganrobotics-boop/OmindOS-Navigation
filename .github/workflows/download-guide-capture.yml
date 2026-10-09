@@ -28,7 +28,7 @@ jobs:
           ./OmindOS-Workbench --verify
           ./OmindOS-Workbench --no-browser > ../workbench.log 2>&1 &
       - name: Capture actual interface
-        run: node capture-workbench.cjs
+        run: timeout 90s node capture-workbench.cjs
       - uses: actions/upload-artifact@v4
         with:
           name: published-workbench-screenshots
