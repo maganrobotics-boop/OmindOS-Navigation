@@ -1,0 +1,31 @@
+{
+  "validated_commit": "fea66f834764ba7f534011f13d95a6bbdc6eef14",
+  "merged_commit": "612890679c1c584051c08eb15faa66ebcb9a8248",
+  "installer_sha256": "f421c79f3029cce50606e0fdaa6acced6dd1711e8f8d1d986c62c79ac8524e73",
+  "parts": [
+    {
+      "name": "ubuntu-navigation-preview8-part-a",
+      "download_url": "https://sdmntprwestus.oaiusercontent.com/files/00000000-c960-8230-b612-bd1e4ca50f73/raw?se=2026-10-10T05%3A23%3A33Z&sp=r&sv=2026-02-06&sr=b&scid=01a1241f-db33-7808-a46b-508b32a01184&skoid=89c13f8f-c33a-46d8-9bf3-ad7158c7790a&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-10T00%3A36%3A46Z&ske=2026-10-11T00%3A36%3A46Z&sks=b&skv=2026-02-06&sig=K6Qoryfpqm%2BI6j3IBSLwzCI/D0OAX393BSg0mDnOxrg%3D",
+      "sha256": "f2d5bba565c09039d710016b016b6fa084762d24ac6b30e26bc9bc1f08f6b6ec",
+      "members": [
+        "package.part00",
+        "VALIDATION.json",
+        "DYNAMICS_VALIDATION.json",
+        "BROWSER_VALIDATION.json",
+        "REFERENCE_BROWSER_VALIDATION.json",
+        "KINEMATICS_VALIDATION.json",
+        "RELEASE_SUMMARY.json",
+        "SHA256SUMS-release.txt",
+        "workbench.png"
+      ]
+    },
+    {
+      "name": "ubuntu-navigation-preview8-part-b",
+      "download_url": "https://sdmntprwestus.oaiusercontent.com/files/00000000-69a4-8230-8821-40b4ac159a2d/raw?se=2026-10-10T05%3A23%3A33Z&sp=r&sv=2026-02-06&sr=b&scid=01a1241f-db33-7808-a46b-508b32a01184&skoid=89c13f8f-c33a-46d8-9bf3-ad7158c7790a&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-10T00%3A17%3A50Z&ske=2026-10-11T00%3A17%3A50Z&sks=b&skv=2026-02-06&sig=b428oAy0iNoB9Q4sHIsjBJSz0d40E4DU%2BVuKv%2B5V%2B/U%3D",
+      "sha256": "463e79f77d4e3844559c4e1ab8e818b9325639c90411d717fe16cb629fad037b",
+      "members": [
+        "package.part01"
+      ]
+    }
+  ]
+}
