@@ -1,8 +1,5 @@
 name: Publish verified Ubuntu Navigation preview 8
 on:
-  push:
-    branches: [main]
-    paths: ['transfer/nav-preview8.json']
   workflow_dispatch:
 permissions:
   contents: write

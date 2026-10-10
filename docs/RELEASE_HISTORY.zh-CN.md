@@ -8,7 +8,9 @@
 
 | 类别 | 发行版本 | 说明 |
 | --- | --- | --- |
-| 当前轻量工作台与完整仿真包 | [v0.2.0-preview.6](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-preview.6) | [功能、安装与兼容性](CONTROL_PREVIEW_6.zh-CN.md)；完整包约 540 MB |
+| 当前 Ubuntu 完整包 | [v0.2.0-preview.8](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-preview.8) | V1.1 装配 R1、12 轴几何标定与联动 |
+| 旧 Ubuntu 完整包 | [v0.2.0-preview.7](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-preview.7) | 完整 MEVIUS2 参数工作台；约 678 MB |
+| 历史轻量工作台与完整仿真包 | [v0.2.0-preview.6](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-preview.6) | [功能、安装与兼容性](CONTROL_PREVIEW_6.zh-CN.md)；完整包约 540 MB |
 | ARM64 软件环境 | [v0.2.0-arm64-preview.2](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-arm64-preview.2) | [构建与验收范围](ARM64_PREVIEW_2.zh-CN.md)；约 522 MB |
 | DM-MC02 独立台架固件 | [dm-mc02-bench-v0.1.0-preview.1](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/dm-mc02-bench-v0.1.0-preview.1) | [固件说明](DM_MC02_BENCH_PREVIEW_1.zh-CN.md)；三路 CAN 只读 |
 | 统一导航与参数 API | [v0.2.0-preview.2](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-preview.2) | [原版说明](../history/v0.2.0-preview.2/README.md)；约 265 MB，仍用于三平台导航预览 |

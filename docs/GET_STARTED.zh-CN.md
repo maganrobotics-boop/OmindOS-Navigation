@@ -12,12 +12,12 @@ Ubuntu 22.04 / 24.04，Intel / AMD 64 位电脑。在终端执行 `uname -m`，�
 
 ## 2. 下载并完整解压
 
-**[下载 Ubuntu 完整安装包](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.7/omindos-navigation-0.2.0-preview.7-ubuntu-amd64.tar)**
+**[下载 Ubuntu 完整安装包](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.8/omindos-navigation-0.2.0-preview.8-ubuntu-amd64.tar)**
 
 用文件管理器完整解压，或在下载目录执行：
 
 ```bash
-tar -xf omindos-navigation-0.2.0-preview.7-ubuntu-amd64.tar
+tar -xf omindos-navigation-0.2.0-preview.8-ubuntu-amd64.tar
 ```
 
 不要只复制其中的启动文件，配套镜像、模型和目录必须保留。需检查下载完整性时见[校验指南](DOWNLOAD_HELP.zh-CN.md)。
@@ -28,7 +28,7 @@ tar -xf omindos-navigation-0.2.0-preview.7-ubuntu-amd64.tar
 
 ```bash
 ./install.sh
-"$HOME/.local/opt/omindos-navigation/0.2.0-preview.7/omindos" workbench
+"$HOME/.local/opt/omindos-navigation/0.2.0-preview.8/omindos" workbench
 ```
 
 安装会导入随包 Docker 镜像，需等待完成。也可在解压目录直接执行 `./omindos workbench`。在浏览器打开：
@@ -43,9 +43,11 @@ OMINDOS_DATA_DIR="/原安装目录/data" ./omindos workbench
 
 ## 4. 设置自己的机器人
 
-左侧导入 URDF / 完整配置，选择关节或连杆并修改参数。点击“将以上参数写入程序”，再保存版本和导出备份。具体字段、单位及按钮作用见[图文操作指南](WORKBENCH_USAGE.zh-CN.md)。
+默认页为 V1.1 CAD 装配 R1，可调节四腿 12 轴几何角度、停止、归零和导出逐轴标定表。几何零位不等于电机编码器零位；真机字段保持待回读。
 
-工作台根据导入的 URDF 显示机器人；示例参数不等于客户硬件标定值。修改参数只作用于当前工作台配置，不表示已写入真实电机。
+点击“关节参数调试”，再在左侧导入 URDF / 完整配置，选择关节或连杆并修改参数。点击“将以上参数写入程序”，再保存版本和导出备份。具体字段、单位及按钮作用见[图文操作指南](WORKBENCH_USAGE.zh-CN.md)。
+
+参数页根据导入的 URDF 显示机器人；示例参数不等于客户硬件标定值。修改参数只作用于当前工作台配置，不表示已写入真实电机。
 
 ## 5. 按需运行包内算法
 
@@ -64,4 +66,4 @@ OMINDOS_DATA_DIR="/原安装目录/data" ./omindos workbench
 
 完整包不包含旧版统一导航 Docker 镜像，也不包含 DM-MC02 可烧录固件。真实底盘、Jetson、RS04 和客户整机仍需独立验收。需要这些开发用途时进入[专业指南](DEVELOPER.zh-CN.md)。
 
-[本版发布与验收记录](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-preview.7)
+[本版发布与验收记录](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/tag/v0.2.0-preview.8)

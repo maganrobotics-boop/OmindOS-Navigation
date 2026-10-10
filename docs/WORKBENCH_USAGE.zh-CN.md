@@ -4,15 +4,19 @@
 
 ## 需要登录吗？
 
-**当前本地工作台不需要账号、密码或注册。** 在安装目录执行 `./omindos workbench`，然后用浏览器打开 `http://127.0.0.1:8085/`。启动终端须保持运行；preview.7 默认将配置保存在 `~/.local/share/omindos-navigation/data`；旧目录迁移见[安装步骤](GET_STARTED.zh-CN.md)。
+**当前本地工作台不需要账号、密码或注册。** 在安装目录执行 `./omindos workbench`，然后用浏览器打开 `http://127.0.0.1:8085/`。启动终端须保持运行；preview.8 默认将配置保存在 `~/.local/share/omindos-navigation/data`；旧目录迁移见[安装步骤](GET_STARTED.zh-CN.md)。
 
 这是本机工作台，登录 OA / 官网 / 学习平台的账号不会用于这里。当前没有云端用户账号登录或自动云同步功能。
 
 ## 界面怎么分？
 
-![Ubuntu 完整安装包实际工作台](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.7/workbench.png)
+![Ubuntu 完整安装包实际工作台](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.8/workbench.png)
 
-图为 preview.7 Ubuntu 完整安装包的实际界面，默认加载 MEVIUS2 完整外观参考模型（13 个网格、12 个关节）。机器人外观与关节列表以导入的 URDF 为准，参数可按客户硬件设置。
+图为 preview.8 安装后的 V1.1 CAD 装配 R1，显示 988 个零件实例。四腿各有侧摆、大腿、膝驱动三个几何预览角度。正方向按转轴箭头右手定则；“恢复 CAD 零位”回到修正装配。展开“轴线、零位与映射依据”，点击“导出 12 轴标定表”，保存模型版本、几何定义和待填写的真机字段。
+
+CAD 操作不下发电机命令。零位、±10°/±20°预览范围不是编码器标定或机械限位；整机紧固件配合与全行程干涉尚待复核。
+
+点击顶部“关节参数调试”进入下列配置界面，原有配置和未保存草稿会保留。参数页初始参考模型为 MEVIUS2，导入 URDF 后按当前配置显示。
 
 | 区域 | 用途 |
 | --- | --- |

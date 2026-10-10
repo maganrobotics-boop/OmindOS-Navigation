@@ -6,29 +6,32 @@
 
 ## 下载 Ubuntu 安装包
 
-**0.2.0-preview.7 · 约 678 MB · Ubuntu · Intel / AMD 64 位电脑**
+**0.2.0-preview.8 · 约 681 MB · Ubuntu · Intel / AMD 64 位电脑**
 
 工作台、ROS 2、四足策略和 MuJoCo 仿真环境已经包含在包内。**只下载这一份，无需再下载轻量工作台或独立算法包。** 首次运行需要电脑已安装 Docker Engine。
 
-### [下载 Ubuntu 安装包 →](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.7/omindos-navigation-0.2.0-preview.7-ubuntu-amd64.tar)
+### [下载 Ubuntu 安装包 →](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.8/omindos-navigation-0.2.0-preview.8-ubuntu-amd64.tar)
 
 [安装与首次使用指南 →](docs/GET_STARTED.zh-CN.md)
 
 ## 装好后能做什么？
 
+- **V1.1 CAD 装配**：查看修正后的机器狗，预览全部 12 轴联动、恢复几何零位并导出标定表。
 - **三维调参**：导入自己的 URDF，编辑关节、连杆和电机参数，保存配置版本。
 - **运动学预览**：查看关节变化，进行点动和轨迹预览；可使用 ROS 2 预览服务。
 - **四足动力学仿真**：使用 MEVIUS2 参考模型体验起身、站立、行走、转向和扰动场景。
 
 ## 工作台长什么样？
 
-![Ubuntu 安装包实际工作台：完整四足参考模型](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.7/workbench.png)
+![Ubuntu 安装包实际工作台：OriginMind V1.1 装配 R1](https://github.com/maganrobotics-boop/OmindOS-Navigation-Release/releases/download/v0.2.0-preview.8/workbench.png)
 
-**左侧改参数，中间看三维模型，右侧点动、试运行和保存版本。** 图为新版 Ubuntu 完整安装包启动后的实际界面，使用 MEVIUS2 完整外观参考模型与 12 个关节。可导入自己的 URDF 与参数。
+**默认打开 V1.1 CAD 装配 R1：988 个实例、12 轴几何联动。** 已补齐前腿摇臂组件并修正右后摇臂位置。展开“轴线、零位与映射依据”可导出标定表；电机方向、编码器零位及机械限位仍待真机回读。
+
+切换“关节参数调试”可导入 URDF、编辑参数、保存版本。参数页保留原 MEVIUS2 参考功能；CAD 模型和控制配置分别管理。
 
 ## 自己的参数怎么改？
 
-1. **导入模型**：左侧导入自己的 URDF 或完整配置文件。
+1. **进入参数页**：点击“关节参数调试”，在左侧导入自己的 URDF 或完整配置文件。
 2. **编辑参数**：选择关节或连杆，填写连接尺寸、限位及电机参数。
 3. **写入并保存**：点击“将以上参数写入程序”，设为工作台当前配置；再保存版本或导出备份。
 
